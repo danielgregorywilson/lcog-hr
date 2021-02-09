@@ -4,7 +4,9 @@ from django.contrib.auth.models import Group, User
 
 from rest_framework import serializers
 
-from people.models import Employee, PerformanceReview, ReviewNote, Signature
+from people.models import (
+    Employee, PerformanceReview, ReviewNote, Signature, TimeOffRequest
+)
 
 
 # Serializers define the API representation.
@@ -165,6 +167,19 @@ class FileUploadSerializer(serializers.Serializer):
 
     class Meta:
         fields = ['file_upload']
+
+
+class TimeOffRequestSerializer(serializers.HyperlinkedModelSerializer):
+    employee_pk = serializers.IntegerField(source='employee.pk') #TODO: Make IntegerField
+    employee_name = serializers.CharField(source='employee.user.get_full_name')
+    manager_pk = serializers.IntegerField(source='employee.manager.pk')
+ 
+    class Meta:
+        model = TimeOffRequest
+        fields = [
+            'url', 'pk', 'employee_pk', 'employee_name', 'manager_pk',
+            'date_start', 'date_end', 'approved'
+        ]
 
 
 class SignatureSerializer(serializers.HyperlinkedModelSerializer):

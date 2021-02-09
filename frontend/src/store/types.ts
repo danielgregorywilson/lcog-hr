@@ -265,3 +265,25 @@ export interface AxiosReviewNoteRetrieveManyServerResponse {
 export interface AxiosReviewNoteUpdateServerResponse {
   data: ReviewNoteRetrieve
 }
+
+
+/////////////////////////////////////////////////////////
+// TimeOffRequest Structure from Django Rest Framework //
+/////////////////////////////////////////////////////////
+
+export interface TimeOffRequestRetrieve {
+  employee_pk: number
+  date_start: Date
+  date_end: Date
+}
+
+export interface TimeOffRequestRetrieve {
+  url: Url
+  pk: number
+  employee_pk: number
+  employee_name: string
+  manager_pk: number
+  date_start: Date
+  date_end: Date
+  approved: boolean
+}

@@ -2,7 +2,7 @@ from django.contrib import admin
 
 from .models import (
     Division, Employee, JobTitle, PerformanceReview, ReviewNote, Signature,
-    SignatureReminder, UnitOrProgram
+    SignatureReminder, TimeOffRequest, UnitOrProgram
 )
 
 
@@ -51,3 +51,8 @@ class PerformanceReviewAdmin(admin.ModelAdmin):
 class ReviewNoteAdmin(admin.ModelAdmin):
     list_display = ("manager", "employee", "date")
     readonly_fields = ("date",)
+
+
+@admin.register(TimeOffRequest)
+class TimeOffRequestAdmin(admin.ModelAdmin):
+    list_display = ("employee", "date_start", "date_end", "approved")

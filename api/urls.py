@@ -5,7 +5,8 @@ from django.urls import include, path
 
 from people.api_views import (
     CurrentUserView, EmployeeViewSet, FileUploadViewSet, GroupViewSet,
-    PerformanceReviewViewSet, ReviewNoteViewSet, SignatureViewSet, UserViewSet
+    PerformanceReviewViewSet, ReviewNoteViewSet, SignatureViewSet,
+    TimeOffRequestViewSet, UserViewSet
 )
 
 
@@ -23,5 +24,6 @@ router.register('v1/performancereview', PerformanceReviewViewSet)
 router.register('v1/fileupload', FileUploadViewSet, basename='fileupload')
 router.register('v1/signature', SignatureViewSet)
 router.register('v1/reviewnote', ReviewNoteViewSet)
+router.register('v1/timeoffrequest', TimeOffRequestViewSet)
 
 urlpatterns = router.urls + urlpatterns

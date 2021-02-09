@@ -573,3 +573,15 @@ class ReviewNote(models.Model):
     employee = models.ForeignKey("Employee", related_name="notes", verbose_name=_("employee"), on_delete=models.CASCADE)
     date = models.DateField(_("review note date"), auto_now=False, auto_now_add=True)
     note = models.TextField(_("review note"))
+
+
+class TimeOffRequest(models.Model):
+    class Meta:
+        verbose_name = _("Time Off Request")
+        verbose_name_plural = _("Time Off Requests")
+    
+    employee = models.ForeignKey("Employee", related_name="time_off_requests", verbose_name=_("employee"), on_delete=models.CASCADE)
+    date_start = models.DateField(_("time off start date"), auto_now=False, auto_now_add=False)
+    date_end = models.DateField(_("time off start date"), auto_now=False, auto_now_add=False)
+
+    approved = models.BooleanField(_("approved"), default=False)
