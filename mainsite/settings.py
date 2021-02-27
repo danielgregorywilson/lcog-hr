@@ -108,9 +108,9 @@ WSGI_APPLICATION = 'mainsite.wsgi.application'
 DATABASES = {
     'default' : {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'hr_app',
-        'USER': 'hr_app_user',
-        'PASSWORD': 'password'
+        'NAME': DB_NAME,
+        'USER': DB_USER,
+        'PASSWORD': DB_PASSWORD
     }
 }
 
