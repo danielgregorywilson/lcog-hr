@@ -9,7 +9,7 @@ const actions: ActionTree<AuthStateInterface, StateInterface> = {
   authRequest: ({commit, dispatch}, user: UserRetrieve) => {
     return new Promise((resolve, reject) => { // The Promise used for router redirect in login
       commit('authRequest')
-      axios({url: `${ process.env.API_URL }api/api-token-auth/`, data: user, method: 'POST' }) // eslint-disable-line @typescript-eslint/restrict-template-expressions
+      axios({url: `${ process.env.API_URL }api/api-token-auth-password/`, data: user, method: 'POST' }) // eslint-disable-line @typescript-eslint/restrict-template-expressions
         .then((resp: AxiosAuthResponse) => {
           const token = resp.data.token
           localStorage.setItem('user-token', token) // store the token in localstorage

@@ -13,6 +13,7 @@ from people.api_views import (
 urlpatterns = [
     path('api-auth/', include('rest_framework.urls')),
     path('api-token-auth/', obtain_auth_token_without_password),
+    path('api-token-auth-password/', obtain_auth_token),
     path('v1/current-user/', CurrentUserView.as_view(), name='current_user'),
 ]
 
