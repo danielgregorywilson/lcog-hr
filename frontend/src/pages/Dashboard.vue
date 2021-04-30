@@ -1,5 +1,5 @@
 <template>
-  <q-page class="q-pa-md">
+  <q-page class="q-pa-md" v-if="isAuthenticated()">
     <div class="q-py-md">
       <div class="text-h4 q-mb-md">Your Next Review</div>
       <div v-if="getNextReview().employee_pk">
@@ -64,6 +64,11 @@ export default class Dashboard extends Vue {
   private currentIndex = -1
   private title = ''
   private nextReviewDate?: Date
+  
+  private isAuthenticated(): boolean {
+    return this.$store.getters['authModule/isAuthenticated'] // eslint-disable-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-return
+  }
+  
   private isManager(): boolean {
     return this.$store.getters['userModule/getEmployeeProfile'].is_manager // eslint-disable-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-return
   }

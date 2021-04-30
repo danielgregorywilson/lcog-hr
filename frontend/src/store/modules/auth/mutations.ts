@@ -2,7 +2,11 @@ import { MutationTree } from 'vuex';
 import { AuthStateInterface } from './state';
 
 const mutation: MutationTree<AuthStateInterface> = {
+  // TODO: Remove, old way of logging in
   authRequest: state => {
+    state.status = 'loading'
+  },
+  setAuth: state => {
     state.status = 'loading'
   },
   authSuccess: (state, token: string) => {

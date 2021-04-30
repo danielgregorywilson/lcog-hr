@@ -59,7 +59,6 @@ const routes: RouteConfig[] = [
         path: '/dashboard',
         name: 'dashboard',
         component: () => import('pages/Dashboard.vue'),
-        beforeEnter: ifAuthenticated,
       },
       {
         path: '/reviews',
