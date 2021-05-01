@@ -86,6 +86,7 @@ import NavLink from 'components/NavLink.vue'
 import { Component, Vue } from 'vue-property-decorator'
 
 import { UserAgentApplication } from 'msal';
+import { Configuration } from 'electron-builder';
 
 interface LinkData {
   title: string;
@@ -142,7 +143,7 @@ export default class MainLayout extends Vue{
   }
 
   // For msal.js Azure/AD SSO 
-  private msalConfig = {
+  private msalConfig: Configuration = {
     auth: {
       clientId: '2c4ec8a0-6be9-4c9c-a6b6-6a40392b8e3e',
       authority: 'https://login.microsoftonline.com/9a80ddb7-1790-4782-a634-ef32f273169c',
