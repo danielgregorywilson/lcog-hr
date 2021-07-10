@@ -8,11 +8,9 @@
 
 # Cypress e2e tests
 Open Cypress launcher to run individual tests
-`cd frontend`
-`npm run cypress:open`
+`cd frontend && npm run cypress:open`
 Run Cypress tests in the background and upload results to https://dashboard.cypress.io/
-`cd frontend`
-`npm run cypress:run`
+`cd frontend && npm run cypress:run`
 
 # Deploy backend
 In mainsite/middleware/CorsMiddleware, make sure the correct response["Access-Control-Allow-Origin"] is commented out.
